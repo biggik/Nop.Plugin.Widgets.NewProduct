@@ -1,0 +1,11 @@
+#NewProduct {
+  background: #eee !important;
+}
+.NewProduct-Overview {
+  font-size: 1em;
+  color: red;
+}
+.NewProduct-Detail {
+  font-size: 2em;
+  color: red;
+}

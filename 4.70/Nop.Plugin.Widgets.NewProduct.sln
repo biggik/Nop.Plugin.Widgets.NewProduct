@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Plugin.Widgets.NewProduct", "Nop.Plugin.Widgets.NewProduct\Nop.Plugin.Widgets.NewProduct.csproj", "{83FC2D39-1955-4779-9887-5B0461224C79}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{C920E1C5-CDDA-4A52-A2C0-F4C60C217F38}"
+	ProjectSection(SolutionItems) = preProject
+		BuildHelper\BK-Lap-widgets-NewProduct-debug.bat = BuildHelper\BK-Lap-widgets-NewProduct-debug.bat
+		BuildHelper\BK-Lap-widgets-NewProduct-release.bat = BuildHelper\BK-Lap-widgets-NewProduct-release.bat
+		..\build-all.cmd = ..\build-all.cmd
+		..\build-version.cmd = ..\build-version.cmd
+		BuildHelper\BuildHelper.bat = BuildHelper\BuildHelper.bat
+		..\Common\Common.Build.props = ..\Common\Common.Build.props
+		..\LICENSE = ..\LICENSE
+		..\README.md = ..\README.md
+		..\skip-folders-in-build.txt = ..\skip-folders-in-build.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nopCommerce", "nopCommerce", "{99F65687-1938-4788-AB61-C22F50FD52A8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Core", "N:\nopCommerce 4.70\Libraries\Nop.Core\Nop.Core.csproj", "{ADF96386-E771-4922-AC29-00C521F6BDBB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Data", "N:\nopCommerce 4.70\Libraries\Nop.Data\Nop.Data.csproj", "{60279F65-C743-4A8E-A5FB-88902216C9B3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Services", "N:\nopCommerce 4.70\Libraries\Nop.Services\Nop.Services.csproj", "{AB06501B-D06A-4286-BC0F-811A5685FF62}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Web.Framework", "N:\nopCommerce 4.70\Presentation\Nop.Web.Framework\Nop.Web.Framework.csproj", "{761BFDEE-FFD1-4770-8DC8-925340A91254}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Web", "N:\nopCommerce 4.70\Presentation\Nop.Web\Nop.Web.csproj", "{D26D484E-D6E4-4F8B-AB57-85EB00785760}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83FC2D39-1955-4779-9887-5B0461224C79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83FC2D39-1955-4779-9887-5B0461224C79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83FC2D39-1955-4779-9887-5B0461224C79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83FC2D39-1955-4779-9887-5B0461224C79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADF96386-E771-4922-AC29-00C521F6BDBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADF96386-E771-4922-AC29-00C521F6BDBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60279F65-C743-4A8E-A5FB-88902216C9B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60279F65-C743-4A8E-A5FB-88902216C9B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB06501B-D06A-4286-BC0F-811A5685FF62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB06501B-D06A-4286-BC0F-811A5685FF62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{761BFDEE-FFD1-4770-8DC8-925340A91254}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{761BFDEE-FFD1-4770-8DC8-925340A91254}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D26D484E-D6E4-4F8B-AB57-85EB00785760}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D26D484E-D6E4-4F8B-AB57-85EB00785760}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ADF96386-E771-4922-AC29-00C521F6BDBB} = {99F65687-1938-4788-AB61-C22F50FD52A8}
+		{60279F65-C743-4A8E-A5FB-88902216C9B3} = {99F65687-1938-4788-AB61-C22F50FD52A8}
+		{AB06501B-D06A-4286-BC0F-811A5685FF62} = {99F65687-1938-4788-AB61-C22F50FD52A8}
+		{761BFDEE-FFD1-4770-8DC8-925340A91254} = {99F65687-1938-4788-AB61-C22F50FD52A8}
+		{D26D484E-D6E4-4F8B-AB57-85EB00785760} = {99F65687-1938-4788-AB61-C22F50FD52A8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		LessCompiler = 83fc2d39-1955-4779-9887-5b0461224c79
+		SolutionGuid = {EC22C118-6015-4F38-9598-325DC8B6E2C6}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,11 @@
+{
+  "Group": "Widgets",
+  "FriendlyName": "NewProduct",
+  "SystemName": "Widgets.NewProduct",
+  "Version": "1.0.0",
+  "SupportedVersions": [ "4.70" ],
+  "Author": "Status ehf",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Widgets.NewProduct.dll",
+  "Description": "This plugin display a marker next to new products in product pages"
+}

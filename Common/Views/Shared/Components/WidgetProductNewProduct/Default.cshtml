@@ -1,0 +1,22 @@
+﻿@model NewProductModel
+@using Nop.Plugin.Widgets.NewProduct.Models;
+@using Nop.Plugin.Widgets.NewProduct.Controllers;
+@using Nop.Plugin.Widgets.NewProduct.Resources;
+@using System.Linq;
+
+@{
+    NopHtml.AddCssFileParts("~/Plugins/Widgets.NewProduct/Content/NewProduct.css", excludeFromBundle: true);
+}
+
+@if (Model.IsInOverview)
+{
+<div class="NewProduct-Overview">
+    <span>NÝ VARA</span>
+</div>
+}
+else
+{
+<div class="NewProduct-Detail">
+    <span>Ný vara</span>
+</div>
+}
