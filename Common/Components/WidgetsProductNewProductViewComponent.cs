@@ -5,6 +5,7 @@ using Nop.Plugin.Widgets.NewProduct.Models;
 using Nop.Services.Catalog;
 using Nop.Web.Framework.Components;
 using Nop.Web.Models.Catalog;
+using System;
 using System.Threading.Tasks;
 
 namespace Nop.Plugin.Widgets.NewProduct.Components
@@ -27,14 +28,16 @@ namespace Nop.Plugin.Widgets.NewProduct.Components
             if (data is ProductDetailsModel pdm)
             {
                 var product = await _productService.GetProductByIdAsync(pdm.Id);
-                if (product.MarkAsNew)
+                if (product.MarkAsNew
+                    && (!product.MarkAsNewStartDateTimeUtc.HasValue || product.MarkAsNewStartDateTimeUtc.Value < DateTime.UtcNow) 
+                    && (!product.MarkAsNewEndDateTimeUtc.HasValue || product.MarkAsNewEndDateTimeUtc.Value > DateTime.UtcNow))
                 {
                     model = new NewProductModel();
                 }
             }
             else if (data is ProductOverviewModel pom)
             {
-                if (pom.MarkAsNew)
+                if (pom.MarkAsNew) // pom already checks the start and end date into MarkAsNew
                 {
                     model = new NewProductModel { IsInOverview = true };
                 }
