@@ -49,6 +49,7 @@ namespace Nop.Plugin.Widgets.NewProduct.Controllers
             var model = new ConfigurationModel
             {
                 WidgetZones = currentWidgetZones,
+                DisplayText = settings.DisplayText,
                 AvailableWidgetZones = AvailableZones(currentWidgetZones),
             };
 
@@ -83,6 +84,7 @@ namespace Nop.Plugin.Widgets.NewProduct.Controllers
             }
 
             settings.WidgetZones = Join(model.WidgetZones);
+            settings.DisplayText = model.DisplayText;
 
             await _settingService.SaveSettingAsync(settings);
             await _settingService.ClearCacheAsync();

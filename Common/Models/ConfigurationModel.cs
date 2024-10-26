@@ -15,6 +15,9 @@ namespace Nop.Plugin.Widgets.NewProduct.Models
         [NopResourceDisplayName(ConfigurationResources.WidgetZones)]
         public IList<int> WidgetZones { get; set; }
 
+        [NopResourceDisplayName(ConfigurationResources.DisplayText)]
+        public string DisplayText { get; set; }
+
         public IList<SelectListItem> AvailableWidgetZones { get; set; }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using Nop.Core;
 using Nop.Core.Domain.Catalog;
 using Nop.Plugin.Widgets.NewProduct.Models;
 using Nop.Services.Catalog;
+using Nop.Services.Configuration;
 using Nop.Web.Framework.Components;
 using Nop.Web.Models.Catalog;
 using System;
@@ -13,15 +15,30 @@ namespace Nop.Plugin.Widgets.NewProduct.Components
     [ViewComponent(Name = "WidgetsProductNewProduct")]
     public class WidgetsProductNewProductViewComponent : NopViewComponent
     {
-        private readonly IProductService _productService;
+        private const string DefaultValue = "Ný vara";
 
-        public WidgetsProductNewProductViewComponent(IProductService productService)
+        private readonly IProductService _productService;
+        private readonly IStoreContext _storeContext;
+        private readonly ISettingService _settingService;
+        private NewProductWidgetSettings _settings;
+
+        public WidgetsProductNewProductViewComponent(
+            IProductService productService,
+            IStoreContext storeContext,
+            ISettingService settingService)
         {
             _productService = productService;
+            _storeContext = storeContext;
+            _settingService = settingService;
         }
 
         public async Task<IViewComponentResult> InvokeAsync(RouteValueDictionary values)
         {
+            if (_settings == null)
+            {
+                var storeScope = await _storeContext.GetActiveStoreScopeConfigurationAsync();
+                _settings = await _settingService.LoadSettingAsync<NewProductWidgetSettings>(storeScope);
+            }
             object data = values["additionalData"];
 
             NewProductModel model = null;
@@ -32,14 +49,18 @@ namespace Nop.Plugin.Widgets.NewProduct.Components
                     && (!product.MarkAsNewStartDateTimeUtc.HasValue || product.MarkAsNewStartDateTimeUtc.Value < DateTime.UtcNow) 
                     && (!product.MarkAsNewEndDateTimeUtc.HasValue || product.MarkAsNewEndDateTimeUtc.Value > DateTime.UtcNow))
                 {
-                    model = new NewProductModel();
+                    model = new NewProductModel { DisplayText = _settings.DisplayText ?? DefaultValue };
                 }
             }
             else if (data is ProductOverviewModel pom)
             {
                 if (pom.MarkAsNew) // pom already checks the start and end date into MarkAsNew
                 {
-                    model = new NewProductModel { IsInOverview = true };
+                    model = new NewProductModel 
+                    { 
+                        DisplayText = _settings.DisplayText ?? DefaultValue,
+                        IsInOverview = true 
+                    };
                 }
             }
 

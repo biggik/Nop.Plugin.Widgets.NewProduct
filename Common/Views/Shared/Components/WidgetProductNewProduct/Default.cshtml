@@ -11,12 +11,12 @@
 @if (Model.IsInOverview)
 {
 <div class="NewProduct-Overview">
-    <span>NÝ VARA</span>
+    <span>@Model.DisplayText</span>
 </div>
 }
 else
 {
 <div class="NewProduct-Detail">
-    <span>Ný vara</span>
+    <span>@Model.DisplayText</span>
 </div>
 }

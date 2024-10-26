@@ -5,5 +5,6 @@ namespace Nop.Plugin.Widgets.NewProduct
     public class NewProductWidgetSettings : ISettings
     {
         public string WidgetZones { get; set; }
+        public string DisplayText { get; set; }
     }
 }

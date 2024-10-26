@@ -8,6 +8,8 @@ namespace Nop.Plugin.Widgets.NewProduct.Models
         {
         }
 
+        public string DisplayText { get; set; }
+
         public bool IsInOverview { get; set; }
     }
 }

@@ -23,7 +23,7 @@
         <div class="col-md-10">
             <nop-select asp-for="WidgetZones" asp-items="Model.AvailableWidgetZones" asp-multiple="true" />
             <script>
-                $(document).ready(function() {
+                $(document).ready(function () {
                     var widgetZonesInput = $('#@Html.IdFor(model => model.WidgetZones)').data("kendoMultiSelect");
                     widgetZonesInput.setOptions({
                         autoClose: false,
@@ -31,6 +31,14 @@
                     });
                 });
             </script>
+        </div>
+
+        <div class="col-md-2">
+            <nop-label asp-for="DisplayText" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="DisplayText" />
+            <span asp-validation-for="DisplayText"></span>
         </div>
     </div>
 </form>
