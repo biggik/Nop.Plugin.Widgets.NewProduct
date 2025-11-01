@@ -20,15 +20,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nopCommerce", "nopCommerce", "{99F65687-1938-4788-AB61-C22F50FD52A8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Core", "N:\nopCommerce 4.70\Libraries\Nop.Core\Nop.Core.csproj", "{ADF96386-E771-4922-AC29-00C521F6BDBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Core", "N:\nopCommerce 4.90\Libraries\Nop.Core\Nop.Core.csproj", "{ADF96386-E771-4922-AC29-00C521F6BDBB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Data", "N:\nopCommerce 4.70\Libraries\Nop.Data\Nop.Data.csproj", "{60279F65-C743-4A8E-A5FB-88902216C9B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Data", "N:\nopCommerce 4.90\Libraries\Nop.Data\Nop.Data.csproj", "{60279F65-C743-4A8E-A5FB-88902216C9B3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Services", "N:\nopCommerce 4.70\Libraries\Nop.Services\Nop.Services.csproj", "{AB06501B-D06A-4286-BC0F-811A5685FF62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Services", "N:\nopCommerce 4.90\Libraries\Nop.Services\Nop.Services.csproj", "{AB06501B-D06A-4286-BC0F-811A5685FF62}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Web.Framework", "N:\nopCommerce 4.70\Presentation\Nop.Web.Framework\Nop.Web.Framework.csproj", "{761BFDEE-FFD1-4770-8DC8-925340A91254}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Web.Framework", "N:\nopCommerce 4.90\Presentation\Nop.Web.Framework\Nop.Web.Framework.csproj", "{761BFDEE-FFD1-4770-8DC8-925340A91254}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Web", "N:\nopCommerce 4.70\Presentation\Nop.Web\Nop.Web.csproj", "{D26D484E-D6E4-4F8B-AB57-85EB00785760}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Web", "N:\nopCommerce 4.90\Presentation\Nop.Web\Nop.Web.csproj", "{D26D484E-D6E4-4F8B-AB57-85EB00785760}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

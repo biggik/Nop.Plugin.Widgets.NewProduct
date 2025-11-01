@@ -18,7 +18,10 @@ using System.Threading.Tasks;
 
 namespace Nop.Plugin.Widgets.NewProduct
 {
-    public class NewProductPlugin : BasePlugin, IWidgetPlugin, IAdminMenuPlugin
+    public class NewProductPlugin : BasePlugin, IWidgetPlugin
+#if NOP_47
+        , IAdminMenuPlugin
+#endif
     {
         private readonly IStoreContext _storeContext;
         private readonly ISettingService _settingService;
@@ -127,6 +130,7 @@ namespace Nop.Plugin.Widgets.NewProduct
         public Type GetWidgetViewComponent(string widgetZone)
             => typeof(WidgetsProductNewProductViewComponent);
 
+#if NOP_47
         public async Task ManageSiteMapAsync(SiteMapNode rootNode)
         {
             var contentMenu = rootNode.ChildNodes.FirstOrDefault(x => x.SystemName == "Content Management");
@@ -164,5 +168,6 @@ namespace Nop.Plugin.Widgets.NewProduct
                 });
             }
         }
+#endif
     }
 }

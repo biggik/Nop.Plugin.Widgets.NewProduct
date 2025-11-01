@@ -44,7 +44,12 @@ namespace Nop.Plugin.Widgets.NewProduct.Controllers
 
             var currentWidgetZones = Zones(settings.WidgetZones);
 
-            var availableSpecCategories = await _specificationAttributeService.GetSpecificationAttributesAsync();
+            var availableSpecCategories = await _specificationAttributeService
+#if NOP_49
+                .GetAllSpecificationAttributesAsync();
+#else
+                .GetSpecificationAttributesAsync();
+#endif
 
             var model = new ConfigurationModel
             {
