@@ -115,6 +115,16 @@ namespace Nop.Plugin.Widgets.NewProduct
         }
 
         /// <summary>
+        /// Update plugin
+        /// </summary>
+        public override async Task UpdateAsync(string currentVersion, string targetVersion)
+        {
+            await ResourceHelper().CreateLocaleStringsAsync();
+
+            await base.UpdateAsync(currentVersion, targetVersion);
+        }
+
+        /// <summary>
         /// Uninstall plugin
         /// </summary>
         public override async Task UninstallAsync()
