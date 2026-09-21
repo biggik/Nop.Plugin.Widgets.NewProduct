@@ -43,22 +43,21 @@ namespace Nop.Plugin.Widgets.NewProduct.Components
             if (data is ProductDetailsModel pdm)
             {
                 var product = await _productService.GetProductByIdAsync(pdm.Id);
-                if (product != null
+                var isNew = product != null
                     && product.MarkAsNew
-                    && (!product.MarkAsNewStartDateTimeUtc.HasValue || product.MarkAsNewStartDateTimeUtc.Value < DateTime.UtcNow) 
-                    && (!product.MarkAsNewEndDateTimeUtc.HasValue || product.MarkAsNewEndDateTimeUtc.Value > DateTime.UtcNow))
-                {
-                    model = new NewProductModel { DisplayText = DisplayText };
-                }
+                    && (!product.MarkAsNewStartDateTimeUtc.HasValue || product.MarkAsNewStartDateTimeUtc.Value < DateTime.UtcNow)
+                    && (!product.MarkAsNewEndDateTimeUtc.HasValue || product.MarkAsNewEndDateTimeUtc.Value > DateTime.UtcNow);
+
+                model = new NewProductModel { DisplayText = isNew ? DisplayText : string.Empty };
             }
             else if (data is ProductOverviewModel pom)
             {
                 if (pom.MarkAsNew) // pom already checks the start and end date into MarkAsNew
                 {
-                    model = new NewProductModel 
-                    { 
+                    model = new NewProductModel
+                    {
                         DisplayText = DisplayText,
-                        IsInOverview = true 
+                        IsInOverview = true
                     };
                 }
             }

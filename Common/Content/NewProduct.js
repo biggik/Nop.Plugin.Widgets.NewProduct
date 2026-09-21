@@ -17,9 +17,16 @@
                 || item;
         }
 
-        return el.closest('.picture-gallery')
+        var gallery = el.closest('.picture-gallery')
             || el.closest('.gallery')
-            || document.querySelector('.product-details-page .picture-gallery, .product-details-page .gallery, .product-essential .picture');
+            || document.querySelector('.product-details-page .picture-gallery, .product-details-page .gallery');
+
+        if (!gallery)
+            return document.querySelector('.product-essential .picture');
+
+        return gallery.querySelector('.picture-wrapper')
+            || gallery.querySelector('.picture')
+            || gallery;
     }
 
     function trayFor(host) {

@@ -2,8 +2,8 @@
 .item-box .product-item,
 .product-item,
 .product-item-picture-wrapper,
-.picture-gallery,
-.gallery,
+.picture-wrapper,
+.gallery .picture,
 .product-image-badges-host {
   position: relative;
 }
@@ -61,4 +61,9 @@ html[dir="rtl"] .product-image-badges {
 .product-image-badges .new-product-badge,
 .product-image-badges .show-discount-percentage {
   position: static;
+}
+
+/* Custom Head Styles still hides default thumbs (old CloudZoom workaround). Quick view uses .thumbnails, so it kept working. */
+.product-details-page .gallery .picture-thumbs {
+  display: block !important;
 }

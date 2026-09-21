@@ -1,12 +1,19 @@
 ﻿@model NewProductModel
-@using Nop.Plugin.Widgets.NewProduct.Models;
-@using Nop.Web.Framework.UI;
+@using Nop.Plugin.Widgets.NewProduct
+@using Nop.Plugin.Widgets.NewProduct.Models
+@using Nop.Web.Framework.UI
 
 @{
-    NopHtml.AddCssFileParts("~/Plugins/Widgets.NewProduct/Content/NewProduct.css", excludeFromBundle: true);
-    NopHtml.AddScriptParts(ResourceLocation.Footer, "~/Plugins/Widgets.NewProduct/Content/NewProduct.js", excludeFromBundle: true);
+    var assetVersion = typeof(NewProductPlugin).Assembly.GetName().Version?.ToString() ?? "1";
+    var cssHref = Url.Content($"~/Plugins/Widgets.NewProduct/Content/NewProduct.css?v={assetVersion}");
+    var jsHref = Url.Content($"~/Plugins/Widgets.NewProduct/Content/NewProduct.js?v={assetVersion}");
+    NopHtml.AddHeadCustomParts($"<link rel=\"stylesheet\" type=\"text/css\" href=\"{cssHref}\" />");
+    NopHtml.AddHeadCustomParts($"<script src=\"{jsHref}\" defer></script>");
 }
 
-<div class="new-product-badge @(Model.IsInOverview ? "new-product-badge--overview" : "new-product-badge--detail")" title="@Model.DisplayText">
-    <span>@Model.DisplayText</span>
-</div>
+@if (!string.IsNullOrWhiteSpace(Model.DisplayText))
+{
+    <div class="new-product-badge @(Model.IsInOverview ? "new-product-badge--overview" : "new-product-badge--detail")" title="@Model.DisplayText">
+        <span>@Model.DisplayText</span>
+    </div>
+}
