@@ -1,21 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Nop.Core;
-using Nop.Core.Domain.Catalog;
 using Nop.Plugin.Widgets.NewProduct.Models;
 using Nop.Services.Catalog;
 using Nop.Services.Configuration;
 using Nop.Web.Framework.Components;
 using Nop.Web.Models.Catalog;
-using System;
-using System.Threading.Tasks;
 
 namespace Nop.Plugin.Widgets.NewProduct.Components
 {
     [ViewComponent(Name = "WidgetsProductNewProduct")]
     public class WidgetsProductNewProductViewComponent : NopViewComponent
     {
-        private const string DefaultValue = "Ný vara";
+        private const string DefaultValue = "NÝ";
 
         private readonly IProductService _productService;
         private readonly IStoreContext _storeContext;
@@ -39,17 +36,19 @@ namespace Nop.Plugin.Widgets.NewProduct.Components
                 var storeScope = await _storeContext.GetActiveStoreScopeConfigurationAsync();
                 _settings = await _settingService.LoadSettingAsync<NewProductWidgetSettings>(storeScope);
             }
-            object data = values["additionalData"];
+            object data = null;
+            values?.TryGetValue("additionalData", out data);
 
             NewProductModel model = null;
             if (data is ProductDetailsModel pdm)
             {
                 var product = await _productService.GetProductByIdAsync(pdm.Id);
-                if (product.MarkAsNew
+                if (product != null
+                    && product.MarkAsNew
                     && (!product.MarkAsNewStartDateTimeUtc.HasValue || product.MarkAsNewStartDateTimeUtc.Value < DateTime.UtcNow) 
                     && (!product.MarkAsNewEndDateTimeUtc.HasValue || product.MarkAsNewEndDateTimeUtc.Value > DateTime.UtcNow))
                 {
-                    model = new NewProductModel { DisplayText = _settings.DisplayText ?? DefaultValue };
+                    model = new NewProductModel { DisplayText = DisplayText };
                 }
             }
             else if (data is ProductOverviewModel pom)
@@ -58,7 +57,7 @@ namespace Nop.Plugin.Widgets.NewProduct.Components
                 {
                     model = new NewProductModel 
                     { 
-                        DisplayText = _settings.DisplayText ?? DefaultValue,
+                        DisplayText = DisplayText,
                         IsInOverview = true 
                     };
                 }
@@ -70,5 +69,8 @@ namespace Nop.Plugin.Widgets.NewProduct.Components
             }
             return Content("");
         }
+
+        private string DisplayText =>
+            string.IsNullOrWhiteSpace(_settings.DisplayText) ? DefaultValue : _settings.DisplayText;
     }
 }

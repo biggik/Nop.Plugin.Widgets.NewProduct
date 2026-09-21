@@ -1,20 +1,18 @@
-﻿using Microsoft.AspNetCore.Routing;
-using Nop.Core;
+﻿using Nop.Core;
 using Nop.Core.Domain.Localization;
 using Nop.Plugin.Widgets.NewProduct.Components;
 using Nop.Plugin.Widgets.NewProduct.Controllers;
-using Nop.Plugin.Widgets.NewProduct.Resources;
 using Nop.Services.Cms;
 using Nop.Services.Configuration;
 using Nop.Services.Localization;
 using Nop.Services.Plugins;
 using Nop.Web.Framework.Infrastructure;
-using Nop.Web.Framework.Menu;
 using nopLocalizationHelper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+#if NOP_47
+using Nop.Web.Framework.Menu;
+using Microsoft.AspNetCore.Routing;
+using Nop.Plugin.Widgets.NewProduct.Resources;
+#endif
 
 namespace Nop.Plugin.Widgets.NewProduct
 {
@@ -106,7 +104,8 @@ namespace Nop.Plugin.Widgets.NewProduct
             {
                 WidgetZones = PublicWidgetZones.ProductBoxAddinfoAfter
                               + ";"
-                              + PublicWidgetZones.ProductPriceBottom
+                              + PublicWidgetZones.ProductPriceBottom,
+                DisplayText = "NÝ"
             });
 
             await ResourceHelper().CreateLocaleStringsAsync();
@@ -120,8 +119,21 @@ namespace Nop.Plugin.Widgets.NewProduct
         public override async Task UpdateAsync(string currentVersion, string targetVersion)
         {
             await ResourceHelper().CreateLocaleStringsAsync();
+            await EnsureBadgeDefaultsAsync();
 
             await base.UpdateAsync(currentVersion, targetVersion);
+        }
+
+        private async Task EnsureBadgeDefaultsAsync()
+        {
+            var settings = await _settingService.LoadSettingAsync<NewProductWidgetSettings>();
+            var currentText = settings.DisplayText?.Trim();
+            if (string.IsNullOrWhiteSpace(currentText)
+                || string.Equals(currentText, "Ný vara", StringComparison.OrdinalIgnoreCase))
+            {
+                settings.DisplayText = "NÝ";
+                await _settingService.SaveSettingAsync(settings);
+            }
         }
 
         /// <summary>

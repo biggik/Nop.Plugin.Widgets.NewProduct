@@ -44,6 +44,9 @@
 		<None Include="..\..\Common\Content\NewProduct.min.css" Link="Content\NewProduct.min.css">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
+		<None Include="..\..\Common\Content\NewProduct.js" Link="Content\NewProduct.js">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -127,6 +130,9 @@
 			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
 		</None>
 		<None Update="Content\NewProduct.min.css">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="Content\NewProduct.js">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
 		<None Update="Views\NewProduct\PublicInfo.cshtml">

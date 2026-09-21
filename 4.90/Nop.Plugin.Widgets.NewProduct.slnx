@@ -1,0 +1,34 @@
+<Solution>
+  <Folder Name="/nopCommerce/">
+    <Project Path="N:/nopCommerce 4.90/Libraries/Nop.Core/Nop.Core.csproj">
+      <Build Project="false" />
+    </Project>
+    <Project Path="N:/nopCommerce 4.90/Libraries/Nop.Data/Nop.Data.csproj">
+      <Build Project="false" />
+    </Project>
+    <Project Path="N:/nopCommerce 4.90/Libraries/Nop.Services/Nop.Services.csproj">
+      <Build Project="false" />
+    </Project>
+    <Project Path="N:/nopCommerce 4.90/Presentation/Nop.Web.Framework/Nop.Web.Framework.csproj">
+      <Build Project="false" />
+    </Project>
+    <Project Path="N:/nopCommerce 4.90/Presentation/Nop.Web/Nop.Web.csproj">
+      <Build Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/Solution items/">
+    <File Path="../build-all.cmd" />
+    <File Path="../build-version.cmd" />
+    <File Path="../Directory.Build.props" />
+    <File Path="../LICENSE" />
+    <File Path="../README.md" />
+    <File Path="../skip-folders-in-build.txt" />
+    <File Path="BuildHelper/BK-Lap-widgets-NewProduct-debug.bat" />
+    <File Path="BuildHelper/BK-Lap-widgets-NewProduct-release.bat" />
+    <File Path="BuildHelper/BuildHelper.bat" />
+  </Folder>
+  <Project Path="Nop.Plugin.Widgets.NewProduct/Nop.Plugin.Widgets.NewProduct.csproj" />
+  <Properties Name="ExtensibilityGlobals" Scope="PostLoad">
+    <Property Name="LessCompiler" Value="83fc2d39-1955-4779-9887-5b0461224c79" />
+  </Properties>
+</Solution>

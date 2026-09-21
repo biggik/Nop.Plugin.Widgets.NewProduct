@@ -1,22 +1,12 @@
 ﻿@model NewProductModel
 @using Nop.Plugin.Widgets.NewProduct.Models;
-@using Nop.Plugin.Widgets.NewProduct.Controllers;
-@using Nop.Plugin.Widgets.NewProduct.Resources;
-@using System.Linq;
+@using Nop.Web.Framework.UI;
 
 @{
     NopHtml.AddCssFileParts("~/Plugins/Widgets.NewProduct/Content/NewProduct.css", excludeFromBundle: true);
+    NopHtml.AddScriptParts(ResourceLocation.Footer, "~/Plugins/Widgets.NewProduct/Content/NewProduct.js", excludeFromBundle: true);
 }
 
-@if (Model.IsInOverview)
-{
-<div class="NewProduct-Overview">
+<div class="new-product-badge @(Model.IsInOverview ? "new-product-badge--overview" : "new-product-badge--detail")" title="@Model.DisplayText">
     <span>@Model.DisplayText</span>
 </div>
-}
-else
-{
-<div class="NewProduct-Detail">
-    <span>@Model.DisplayText</span>
-</div>
-}

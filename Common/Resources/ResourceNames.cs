@@ -23,8 +23,8 @@ namespace Nop.Plugin.Widgets.NewProduct.Resources
         [LocaleString(Cultures.IS, "Birta í", "Hvar á síðunni á að birta íhlutinn")]
         public const string WidgetZones = "Status.NewProductWidget.Configuration.WidgetZones";
 
-        [LocaleString(Cultures.EN, "Display text", "Text to display for New Product (default is New)")]
-        [LocaleString(Cultures.IS, "Birtingartexti", "Texti sem á að sýna fyrir Nýja Vöru (sjálfgildi er Ný Vara)")]
+        [LocaleString(Cultures.EN, "Display text", "Short badge text for new products (default is NÝ)")]
+        [LocaleString(Cultures.IS, "Birtingartexti", "Stuttur merkingartexti fyrir nýja vöru (sjálfgildi er NÝ)")]
         public const string DisplayText = "Status.NewProductWidget.Configuration.DisplayText";
     }
 }
